@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abhi
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: abhi
+  template:
+    metadata:
+      labels:
+        type: abhi
+    spec:
+      containers:
+        - name: container1
+          image: radian19/abhi
+          ports:
+            - containerPort: 4000
